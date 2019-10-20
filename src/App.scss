@@ -1,0 +1,591 @@
+@mixin buttonAfter($content) {
+  & span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s; 
+    margin: 0;
+  }
+  & span:after {
+    content: $content;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    transition: 0.5s;
+  }
+  &:hover span {
+    padding-right: 15px;
+  }
+  &:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #2d2d2d;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  color: white;
+  font-size: 16px;
+  background: tomato;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  &:active {
+    background: darken($color: tomato, $amount: 20);
+  }
+}
+
+.App-header {
+  box-sizing: border-box;
+  background: #1d1d1d;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 30vw;
+  height: 30vw;
+  border-radius: 0 0 50% 0;
+  padding: 10px;
+  z-index: 1;
+  @media screen and (min-width: 640px) {
+    width: 15vw;
+    height: 15vw;
+  }
+  & a {
+    width: 100%;
+  }
+}
+
+.Logo {
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  & img {
+    width: 100%;
+    transform: rotate(-15deg);
+  }
+}
+
+.Menu {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  z-index: 2;
+  @media screen and (max-width: 640px) {
+    top: -50px;
+    transition: top .3s;
+  }
+  & .Bar {
+    background: #FFF;
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;
+    position: absolute;
+    transition: all .2s;
+    top: 0;
+  }
+  & .Middle, .Middle2 {
+    top: 40%;
+  }
+  .Middle2 {
+    width: 0%;
+    margin-left: 50%;
+    transform: rotate(-45deg);
+  }
+  & .Bottom {
+    top: 80%;
+  }
+}
+.Close {
+  & .Top {
+    opacity: 0;
+    margin-left: 30%;
+  }
+  & .Middle {
+    transform: rotate(45deg);
+  }
+  & .Middle2 {
+    width: 100%;
+    margin-left: 0;
+  }
+  & .Bottom {
+    opacity: 0;
+    margin-left: -30%;
+  }
+}
+
+nav {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  transition: top.3s;
+  &::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    bottom: 100%;
+    height: 100%;
+    background: #1d1d1d;
+  }
+  @media screen and (min-width: 640px) {
+    width: 100%;
+    height: calc(100vh - 15vw);
+    transition: left .3s;
+  }
+  & ul {
+    margin: 0;
+    padding-left: 10px;
+    list-style: none;
+    height: 100%;
+    background: #1d1d1d;
+    overflow: scroll;
+    & li {
+      list-style: none;
+      padding: 25px 0;
+      position: relative;
+      & img {
+        position: absolute;
+        right: 0;
+        width: 50px;
+        top: 12.5px;
+      }
+    }
+    & a {
+      &:visited {
+        color: white;
+      }
+      &:hover {
+        color: tomato;
+      }
+    }
+  }
+}
+
+.Nav-hiding {
+  @media screen and (max-width: 640px) {
+    top: -100vh;
+    & .Menu {
+      top: calc(100% + 10px);
+    }
+  }
+  @media screen and (min-width: 640px) {
+    left: calc(-100% + 50px);
+  }
+}
+
+.Splash-Flex {
+  position: absolute;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  left: 0;
+  z-index: -1;
+  top: 0;
+  height: 300vh;
+  @media screen and (min-width: 640px) {
+    flex-direction: row;
+    width: calc(100% - 50px);
+    left: 50px;
+    height: 100vh;
+  }
+}
+
+.Pizza {
+  background: #1d1d1d url('./Pizza.jpg') center/cover;
+  @media screen and (max-width: 640px) {
+    order: -1;
+  }
+}
+
+.Beer {
+  background: url('./Beer.jpg') center/cover;
+  position: relative;
+  & img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+}
+
+.Cocktails{
+  background: url('./Cocktails.jpg') center/cover;
+}
+
+.Pizza-page, .Pizza-maker-page, .Beer-page, .Cocktail-page, .Order-page {
+  width: calc(100% - 50px);
+  margin-left: 50px;
+  @media screen and (max-width: 640px) {
+    margin: 0;
+    width: 100%;
+  }
+  & .Header-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: middle;
+    z-index: -1;
+  }
+  & .Container {
+    padding: 50px calc(15vw - 50px) 0;
+    margin: 0 auto;
+    background: #2d2d2d;
+    @media screen and (max-width: 640px) {
+      padding: 0;
+    }
+  }
+}
+
+.Pizza-maker-page {
+  & .Container {
+    @media screen and (min-width: 640px) {
+      display: flex;
+    }
+    flex: 1;
+  }
+  & .Pizza-view {
+    padding-top: 10px;
+    flex-grow: 2;
+    position: relative;
+    @media screen and (min-width: 640px) {
+      padding: 0;
+    }
+    & .Pizza-price {
+      margin-right: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    & .Pizza-live {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 500px;
+      margin-top: 10px;
+      display: block;
+      position: relative;
+      @media screen and (min-width: 640px) {
+        width: 80%;
+      }
+      & .Pizza-bottom {
+        width: 100%;
+        height: 100%;
+      }
+      & .Topping {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+      & .Pizza-span {
+        text-align: center;
+      }
+    }
+    & button {
+      @include buttonAfter('\00bb');
+    }
+  }
+  & .Button-group {
+    border-radius: 5px;
+    margin: 10px 0;
+    :nth-child(1) {
+      border-radius: 5px 0 0 5px;
+      border-right: none;
+    }
+    :nth-child(3) {
+      border-radius: 0 5px 5px 0;
+      border-left: none;
+    }
+    & button {
+      box-sizing: border-box;
+      width: 33.3%;
+      font-weight: bold;
+      font-size: 16px;
+      background: none;
+      border: none;
+      color: tomato;
+      outline: none;
+      padding: 0;
+      border-radius: 0;
+      border: solid 2px tomato;
+    }
+    & .Active {
+      color: white;
+      background: tomato;
+    }
+  }
+  & .Toppings {
+    flex-grow: 1;
+    & h1 {
+      margin: 0;
+    }
+    & ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      & span {
+      }
+    }
+  }
+}
+
+.Pizza, .Beer, .Cocktails {
+  flex: 1;
+  height: 100%;
+  transition: all .3s linear;
+  position: relative;
+  & div {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 20%;
+    background: #1d1d1d;
+    transition: all .1s ease-in;
+    width: 100%;
+    @media screen and (min-width: 640px) {
+      opacity: 0;
+      bottom: 40%;
+    }
+    & p {
+      font-size: 18px;
+    }
+    & button {
+      color: white;
+      font-size: 16px;
+      background: tomato;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 5px;
+      @include buttonAfter('\00bb');
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .Pizza:hover, .Beer:hover, .Cocktails:hover {
+    flex-grow: 3;
+    & div {
+      transition: .3s all .3s ease-in;
+      opacity: 1;
+    }
+  }
+}
+
+.Add {
+  margin-left: 50%;
+  cursor: pointer;
+}
+
+.Active {
+  pointer-events: none;
+}
+
+.Order-page {
+  @media screen and (min-width: 640px) {
+    display: flex;
+  }
+  & h1 {
+    margin: 0;
+  }
+  & .Container {
+    width: 90%;
+    padding: 0;
+    @media screen and (min-width: 640px) {
+      width: 70%;
+      margin: 0 0 0 calc(15vw - 50px);
+    }
+  }
+  & .Checkout-main {
+    width: 90%;
+    margin: 0 auto;
+    @media screen and (min-width: 640px) {
+      width: 40%;
+      margin: 0 calc(15vw - 50px) 0 0;
+    }
+  }
+  & .Checkout {
+    background: #1d1d1d;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    & span {
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+    }
+    & .Order-message {
+      color: white;
+      font-size: 16px;
+      margin-top: 5px;
+      background: tomato;
+      border: none;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    & button {
+      width: 100%;
+      margin-top: 5px;
+      @include buttonAfter('\00bb');
+    }
+  }
+  & .Receipt {
+    color: black;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 10px;
+    //box-shadow: 10px -20px 20px 0px rgba(0,0,0,0.75);
+    @media screen and (min-width: 640px) {
+      width: 80%;
+    }
+    & ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      & li {
+        position: relative;
+        margin: 5px 0;
+        & .Title {
+          display: block;
+          border-bottom: 3px dotted #000000;
+          & + span {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+      & ul {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.Card-main {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(13, 13, 13, 0.8);
+  top: 0;
+  left: 0;
+  text-align:center;
+  & .Card-container {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 50px auto;
+    padding: 0 10px;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    text-align:center;
+    & button {
+      padding: 0.4em 0.6em;
+      margin: 10px 0;
+    }
+    & .Close-card {
+      @include buttonAfter('\2715');
+    }
+    & .Pay {
+      @include buttonAfter('$');
+    }
+    & .dUEXvh {
+      border-color: white;
+      box-shadow: none;
+      border-radius: 5px;
+    }
+    & .Name {
+      height: 2.5em;
+      padding: 0.4em 0.6em;
+      font-size: inherit;
+      border: 1px solid white;
+      border-radius: 5px;
+      margin-top: 10px;
+      outline: none;
+    }
+    & .Name-error {
+      color: #c9444d;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+.Food-flex {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0;
+  @media screen and (max-width: 640px) {
+    padding: 0;
+  }
+  & li {
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    @media screen and (min-width: 520px) {
+      width: calc(50% - 20px);
+    }
+    @media screen and (min-width: 640px) {
+      width: calc(33% - 20px);
+    }
+    @media screen and (min-width: 900px) {
+      width: calc(25% - 20px);
+    }
+    margin: 10px;
+    list-style: none;
+    position: relative;
+    background: #1d1d1d;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    & span {
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+    }
+    & img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    & button {
+      margin-top: auto;
+      width: 100%;
+      vertical-align: bottom;
+      border-radius: 0 0 5px 5px;
+      @include buttonAfter('\00bb');
+    }
+  }
+}
