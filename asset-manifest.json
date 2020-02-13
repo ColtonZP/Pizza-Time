@@ -1,23 +1,14 @@
 {
   "files": {
     "main.css": "/Pizza-Time/static/css/main.194aaa17.chunk.css",
-<<<<<<< HEAD
     "main.js": "/Pizza-Time/static/js/main.057759c0.chunk.js",
     "main.js.map": "/Pizza-Time/static/js/main.057759c0.chunk.js.map",
-=======
-    "main.js": "/Pizza-Time/static/js/main.132eb7d3.chunk.js",
-    "main.js.map": "/Pizza-Time/static/js/main.132eb7d3.chunk.js.map",
->>>>>>> master
     "runtime~main.js": "/Pizza-Time/static/js/runtime~main.9046365b.js",
     "runtime~main.js.map": "/Pizza-Time/static/js/runtime~main.9046365b.js.map",
     "static/js/2.8898043c.chunk.js": "/Pizza-Time/static/js/2.8898043c.chunk.js",
     "static/js/2.8898043c.chunk.js.map": "/Pizza-Time/static/js/2.8898043c.chunk.js.map",
     "index.html": "/Pizza-Time/index.html",
-<<<<<<< HEAD
     "precache-manifest.ad1cc56479f61210a1bf6ed1656cd4b1.js": "/Pizza-Time/precache-manifest.ad1cc56479f61210a1bf6ed1656cd4b1.js",
-=======
-    "precache-manifest.bb0ec64e8a1f98e8453b79413c13c883.js": "/Pizza-Time/precache-manifest.bb0ec64e8a1f98e8453b79413c13c883.js",
->>>>>>> master
     "service-worker.js": "/Pizza-Time/service-worker.js",
     "static/css/main.194aaa17.chunk.css.map": "/Pizza-Time/static/css/main.194aaa17.chunk.css.map",
     "static/media/BBQ Sauce.png": "/Pizza-Time/static/media/BBQ Sauce.65fc8e10.png",
