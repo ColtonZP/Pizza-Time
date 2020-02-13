@@ -1,0 +1,118 @@
+@import '/styles/App.scss';
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif:700&display=swap');
+
+* {
+	margin: 0;
+	font-family: 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: normal;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+body {
+	color: white;
+	background: #2d2d2d;
+	font-size: 14px;
+	@media screen and (min-width: 640px) {
+		font-size: 16px;
+	}
+}
+
+// h1 {
+// 	font-size: 4em;
+// }
+
+// h3 {
+// 	font-size: 1.5em;
+// 	font-weight: bold;
+// }
+
+// button,
+// a {
+// 	background-color: $mainBlue;
+// 	padding: 0.1em 1em;
+// 	border-radius: 1em;
+// 	font-size: 1em;
+// 	color: white;
+// 	cursor: pointer;
+// 	border: none;
+// 	outline: none;
+// 	transition: box-shadow linear 0.03s;
+// 	box-shadow: 9px 9px 16px #dedede;
+// 	&:active {
+// 		box-shadow: 3px 3px 3px #dedede;
+// 	}
+// }
+
+.Container {
+	width: 90vw;
+	margin: 0 auto;
+	max-width: 1400px;
+	//position: relative;
+	@media screen and (min-width: 600px) {
+		width: 85vw;
+	}
+	@media screen and (min-width: 800px) {
+		width: 80vw;
+	}
+}
+
+button {
+	color: white;
+	font-size: .8rem;
+	background: tomato;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	padding: .8rem;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	& span {
+		font-weight: bold;
+	}
+	&:hover {
+		background: darken($color: tomato, $amount: 5);
+	}
+	&:active {
+		background: darken($color: tomato, $amount: 10);
+	}
+}
+
+// nav {
+// 	position: sticky;
+// 	top: 0px;
+// 	padding-top: 2em;
+// 	//float: left;
+// 	height: 0;
+// 	z-index: 2;
+// 	& ul {
+// 		position: relative;
+// 		display: table;
+// 		position: relative;
+// 		left: -10rem;
+// 	}
+// 	& li {
+// 		//display: inline;
+// 		margin-bottom: 1rem;
+// 		mix-blend-mode: difference;
+// 	}
+// 	& a {
+// 		background: none;
+// 		color: black;
+// 		transition: padding ease-out 0.3s;
+// 		&:visited {
+// 			color: black;
+// 		}
+// 		&:hover {
+// 			color: darken($mainBlue, 10%);
+// 			padding-left: 1.5rem;
+// 		}
+// 	}
+// }
