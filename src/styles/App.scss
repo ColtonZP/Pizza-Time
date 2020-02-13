@@ -58,12 +58,13 @@ nav {
 	box-sizing: border-box;
 	margin: 2em 0;
 	position: relative;
+	height: 8rem;
 	& .Logo {
-		height: 8em;
+		height: 100%;
 		transform: rotate(-15deg);
 	}
 	& ul {
-		height: 7em;
+		height: 100%;
 		margin: auto 0;
 		list-style: none;
 		float: right;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import pizzaPic from './Pizza.jpg';
 import pepperoniPic from './pizza/pepperoni.jpg';
 import cheesePic from './pizza/cheese.jpg';
 import meatPic from './pizza/meat_lovers.jpg';

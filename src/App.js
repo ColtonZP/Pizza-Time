@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 //import './styles/App.scss';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
+import Header from './Header';
 import Menu from './Menu';
 import PizzaMaker from './PizzaMaker';
 import Order from './Order';
 import ScrollToTop from './ScrollToTop';
-import logo from './logo-white.svg';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			menuShow: false,
 			pizzaOrder: [],
 			beerOrder: [],
 			cocktailOrder: [],
@@ -59,43 +58,7 @@ class App extends Component {
 			<div className="App">
 				<Router onUpdate={() => window.scrollTo(0, 0)}>
 					<ScrollToTop>
-						<header className="App-header">
-							<div className="Container">
-								<nav className={menuShow ? 'Nav' : 'Nav-hiding'}>
-									<Link to="/">
-										<img className="Logo" alt="Link to home" src={logo} />
-									</Link>
-									{/* <button
-										type="button"
-										className={menuShow ? 'Menu Close' : 'Menu'}
-										onClick={this.toggle}
-									>
-										<div className="Top Bar" />
-										<div className="Middle Bar" />
-										<div className="Middle2 Bar" />
-										<div className="Bottom Bar" />
-									</button> */}
-									<ul>
-										<li>
-											<Link to="/" onClick={menuShow && this.toggle}>
-												Home
-											</Link>
-										</li>
-										<li>
-											<Link to="/menu" onClick={menuShow && this.toggle}>
-												Menu
-											</Link>
-										</li>
-										<li>
-											<Link to="/order" onClick={menuShow && this.toggle}>
-												Order
-											</Link>
-										</li>
-									</ul>
-								</nav>
-							</div>
-						</header>
-
+						<Header />
 						<Switch>
 							<Route exact path="/" component={Home} />
 							<Route
